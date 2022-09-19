@@ -1,7 +1,7 @@
 const houses = [
     {
         categories:'beach',
-        picture:'https://a0.muscache.com/pictures/10ce1091-c854-40f3-a2fb-defc2995bcaf.jpg',
+        picture:'https://a0.muscache.com/im/pictures/a3a89adb-4047-4209-b31a-97d8b953db64.jpg?im_w=720',
         location:'NefwBury NewYork',
         rating:'New',
         distance:88,
@@ -14,7 +14,7 @@ const houses = [
     },
     {
         categories:'lakefront',
-        picture:'https://a0.muscache.com/pictures/10ce1091-c854-40f3-a2fb-defc2995bcaf.jpg',
+        picture:'https://a0.muscache.com/im/pictures/ef21f7aa-64af-4502-b4a2-abeef744d49d.jpg?',
         location:'NewTon Masschussets',
         rating:'New',
         distance:88,
@@ -27,7 +27,7 @@ const houses = [
     },
     {
         categories:'lakefront',
-        picture:'https://a0.muscache.com/pictures/10ce1091-c854-40f3-a2fb-defc2995bcaf.jpg',
+        picture:'https://a0.muscache.com/im/pictures/a3a89adb-4047-4209-b31a-97d8b953db64.jpg?',
         location:'Sudbury Boston',
         rating:'4.7',
         distance:88,
@@ -44,11 +44,14 @@ const houses = [
 const imageEl = document.getElementById('images-container');
 
 function displayAllHouses( ){
-  let house =  houses.forEach(item => {
-       `<div class=" ">
+imageEl.innerHTML="";
+     houses.forEach(item => {
+         const createdDiv = document.createElement("div")
+         createdDiv.innerHTML = `
     <div class="inline-block align-bottom">
-      <img class="rounded" src=${item.categories} alt="" srcset="">
+      <img class="rounded" src="${item.picture}" alt="" srcset="">
     </div>
+        
 
     <div class="pt-2">
       <div class="flex justify-between">
@@ -71,15 +74,14 @@ function displayAllHouses( ){
           <span class="text-black">night</span>
         </div>
       </div>
-    </div>
-    
-  </div>`
+    </div>`;
+
+         imageEl.appendChild(createdDiv);
    });
-  imageEl.append(house);
 
 };
 
-displayAllHouses();
+ displayAllHouses();
 
 
 
